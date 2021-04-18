@@ -6,6 +6,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 // MONGO
 const MongoClient = require("mongodb").MongoClient;
+const { viewWallet } = require("./model/scenesInMongo");
+const { response } = require("express");
 const dbUrl = "mongodb://localhost:27017";
 const databaseName = "c6Mongo";
 
@@ -59,11 +61,26 @@ app.get("/", (req, res) => {
   res.redirect("/scene/intro");
 });
 
+app.get("/organicStore", (req, res) => {
+  shoppingCart = [];
+  console.log("Shopping cart is empty?", shoppingCart);
+  shoppingCart.push("grocery item");
+  console.log("Item added to shopping cart?", shoppingCart);
+  res.render("Item added to shopping cart");
+});
+
 // POST
 app.post("/", function (request, response) {
   response.send(request.body);
 });
+// //////////////
+app.set("view engine", "pug");
+app.set("views", "./views");
 
+app.get("/", (req, res) => {
+  res.render("index", { title: "Testing pug title", message: "Pug message" });
+});
+// ///////////////
 // TESTING (from Osric's code):
 // app.get("/scene/:items", (req, res) => {
 //   res.send("TEST:" + req.params.items);

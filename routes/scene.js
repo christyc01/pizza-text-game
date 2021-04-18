@@ -1,6 +1,6 @@
 const express = require("express");
 const scenes = require("../model/scenesInMongo");
-const formatSceneAsText = require("../view/formatSceneAsText");
+const formatSceneAsText = require("../views/formatSceneAsText");
 
 let router = express.Router();
 
@@ -14,6 +14,16 @@ router.get("/:sceneName", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(404).send(`Scene ${sceneName} not found.\n`);
+  }
+});
+
+router.get("/:moneyAmount", async (req, res) => {
+  try {
+    let money = await scenes.viewWallet(moneyAmount);
+    res.send(money);
+  } catch (error) {
+    console.log(error);
+    res.status(404).send("Nope.");
   }
 });
 

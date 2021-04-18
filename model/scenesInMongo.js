@@ -46,5 +46,13 @@ async function findSceneByName(sceneName) {
   });
 }
 
+async function viewWallet(moneyAmount) {
+  console.log("FUNCTUON UPDATEWALLET - moneyAmount", moneyAmount);
+  return db.getCollection("wallet").then((wallet) => {
+    console.log("Wallet amount");
+    return wallet.find({});
+  });
+}
+
 // module.exports = { createScene, findSceneById: findSceneByName };
-module.exports = { createScene, findSceneByName };
+module.exports = { createScene, findSceneByName, viewWallet };
