@@ -1,11 +1,8 @@
 const scenes = require("./scenesInMongo");
-let { money } = require("../view/formatSceneAsText");
-let today = new Date();
-let time = today.getHours() + ":" + today.getMinutes();
 
 scenes.createScene(
   "intro",
-  `It's ${time} and you're craving pizza.
+  `It's 5pm and you're craving pizza.
 `,
   [
     {
@@ -21,7 +18,7 @@ scenes.createScene(
 
 scenes.createScene(
   "orderPizza",
-  `Why waste time cooking when you can be coding?  And when you have $${money} in your wallet?  You've been wanting to try that new pizza place that all the cool kids are talking about.  You check out their website and see they have 2 options:
+  `Why waste time cooking when you can be coding?  You've been wanting to try that new pizza place that all the cool kids are talking about.  You check out their website and see they have 2 options:
   -vegetarian ($4)
   -ham and pineapple ($5)
   `,
@@ -39,7 +36,7 @@ scenes.createScene(
 
 scenes.createScene(
   "vegetarianPizza",
-  `You have excellent taste, so you go with the vegetarian option.  Mmm, cheese-covered veggies!  You proudly place your order, only to be told that because of the restaurant's popularity, there is a 2-hour wait on all orders!  You have $${money}.`,
+  `You have excellent taste, so you go with the vegetarian option.  Mmm, cheese-covered veggies!  You proudly place your order, only to be told that because of the restaurant's popularity, there is a 2-hour wait on all orders!.`,
   [
     {
       description:
@@ -65,7 +62,7 @@ scenes.createScene(
 );
 scenes.createScene(
   "waitForPizza",
-  `You decide to put on a few episodes of The Witcher to take your mind off your empty stomach.  Gooooo, Geralt!  Finally, you hear the doorbell - the pizza has arrived!  You pay and now have $${money} left in your wallet. You answer the door and return to your couch.  Ahhh, an evening of pizza and monster-slaying.  All is right with the world.`,
+  `You decide to put on a few episodes of The Witcher to take your mind off your empty stomach.  Gooooo, Geralt!  Finally, you hear the doorbell - the pizza has arrived!  You answer the door and return to your couch.  Ahhh, an evening of pizza and monster-slaying.  All is right with the world.`,
   [{ description: "", scene: "end" }]
 );
 // *** Add an if statement to stop this one from showing choices
@@ -118,22 +115,20 @@ scenes.createScene(
   ]
 );
 // scenes.createScene("*****SCENENAME*****", `*****CONTENT*****`, [
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
 // ]);
 // scenes.createScene("*****SCENENAME*****", `*****CONTENT*****`, [
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
 // ]);
 // scenes.createScene("*****SCENENAME*****", `*****CONTENT*****`, [
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
 // ]);
 
 // // TEMPLATE FOR SCENES
 // scenes.createScene("*****SCENENAME*****", `*****CONTENT*****`, [
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
-//   { description: "*****CHOICEDESCRIPTION*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
+//   { description: "*****description*****", scene: "*****SCENENAME*****" },
 // ]);
-
-// Dino Ipsum placeholder text from https://dinoipsum.herokuapp.com/

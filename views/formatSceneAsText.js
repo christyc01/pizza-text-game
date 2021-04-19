@@ -1,12 +1,10 @@
-let money = 5;
+// require("../routes/scene");
 
 function lineWrap(text, width) {
-  console.clear();
   let wrappedText = "";
   let paragraphs = text.split("\n");
   paragraphs.forEach((paragraphText) => {
     wrappedText += "\n";
-    // wrappedText += "\n  ";
     columnCount = 2;
     let words = paragraphText.split(" ");
     words.forEach((word) => {
@@ -23,10 +21,6 @@ function lineWrap(text, width) {
 }
 
 function formatSceneAsText(scene, width, baseUrl) {
-  if (scene === "vegetarianPizza") {
-    money -= 1;
-    body += "FormatSceneAsText money: " + money;
-  }
   let body =
     "************************************************\n" +
     lineWrap(scene.description, width) +
@@ -41,13 +35,9 @@ function formatSceneAsText(scene, width, baseUrl) {
         option.description +
         "\n" +
         `(Please enter: curl ${baseUrl}/scene/${option.scene})\n\n`;
-      // body += option.description + "\n";
-      // body += `--> If this is your choice, enter: curl ${baseUrl}/scene/${option.scene}\n\n`;
     });
     return body;
   }
 }
 
 module.exports = formatSceneAsText;
-// module.exports = { formatSceneAsText, money: "money" };
-module.exports.money = money;
