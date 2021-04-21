@@ -32,6 +32,13 @@ function close() {
 app.use("/scene", sceneRoutes);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// // For CSS
+// app.use(express.static(__dirname + "/public"));
+// var link = document.createElement("link");
+// link.setAttribute("rel", "stylesheet");
+// link.setAttribute("href", "/public/css/style.css");
+// var head = document.getElementsByTagName("head")[0];
+// head.appendChild(link);
 
 // // ***Add something to the database (MongoDB) - works but not sure how to use this in my game
 // db.getCollection("scenes")
@@ -78,4 +85,5 @@ module.exports = {
   getDb,
   getCollection,
   close,
+  // wallet,
 };
