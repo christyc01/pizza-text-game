@@ -6,11 +6,13 @@ scenes.createScene(
 `,
   [
     {
-      description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>",
+      description:
+        "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>",
       scene: "orderPizza",
     },
     {
-      description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You decide to make your own pizza. ",
+      description:
+        "<a href='http://localhost:3000/scene/makePizza'>You decide to make your own pizza.</a>",
       scene: "makePizza",
     },
   ]
@@ -18,17 +20,19 @@ scenes.createScene(
 
 scenes.createScene(
   "orderPizza",
-  `Why waste time cooking when you can be coding?  You've been wanting to try that new pizza place that all the cool kids are talking about.  You check out their website and see they have 2 options:
-  -vegetarian ($4)
+  `Why waste time cooking when you can be coding?  You've been wanting to try that new pizza place that all the cool kids are talking about.  You check out their website and see they have 2 options:<br>
+  -vegetarian ($4)<br>
   -ham and pineapple ($5)
   `,
   [
     {
-      description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You choose the vegetarian pizza.",
+      description:
+        "<a href='http://localhost:3000/scene/vegetarianPizza'>You choose the vegetarian pizza.</a>",
       scene: "vegetarianPizza",
     },
     {
-      description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You choose the ham and pineapple pizza.",
+      description:
+        "<a href='http://localhost:3000/scene/hamAndPineapplePizza'>You choose the ham and pineapple pizza.</a>",
       scene: "hamAndPineapplePizza",
     },
   ]
@@ -40,11 +44,12 @@ scenes.createScene(
   [
     {
       description:
-      "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You decide to cancel your order and make your own pizza instead.",
+        "<a href='http://localhost:3000/scene/makePizza'>You decide to cancel your order and make your own pizza instead.</a>",
       scene: "makePizza",
     },
     {
-      description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You decide to wait for the pizza.",
+      description:
+        "<a href='http://localhost:3000/scene/waitForPizza'>You decide to wait for the pizza.</a>",
       scene: "waitForPizza",
     },
   ]
@@ -55,7 +60,8 @@ scenes.createScene(
   `You incorrectly chose the ham and pineapple pizza.  Nobody should eat that garbage.  Please choose again.`,
   [
     {
-      description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You choose the vegetarian pizza.",
+      description:
+        "<a href='http://localhost:3000/scene/vegetarianPizza'>You choose the vegetarian pizza.</a>",
       scene: "vegetarianPizza",
     },
   ]
@@ -63,14 +69,24 @@ scenes.createScene(
 scenes.createScene(
   "waitForPizza",
   `You decide to put on a few episodes of The Witcher to take your mind off your empty stomach.  Gooooo, Geralt!  Finally, you hear the doorbell - the pizza has arrived!  You answer the door and return to your couch.  Ahhh, an evening of pizza and monster-slaying.  All is right with the world.`,
-  [{ description: "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""", scene: "end" }]
+  [
+    {
+      description: "<a href='http://localhost:3000/scene/end'>End</a>",
+      scene: "end",
+    },
+  ]
 );
 // *** Add an if statement to stop this one from showing choices
 scenes.createScene(
   "end",
-  `Congratulations!  You were successful in satisfying your empty stomach.
+  `Congratulations!  You were successful in satisfying your empty stomach.<br><br>
 THE END`,
-  ["..."]
+  [
+    {
+      description: "<a href='http://localhost:3000/scene/intro'>Replay!</a>",
+      scene: "intro",
+    },
+  ]
 );
 scenes.createScene(
   "makePizza",
@@ -80,13 +96,13 @@ You check the fridge and realize you're out of pizza-making ingredients.  You'll
   [
     {
       description:
-      "<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>""You decide to go to the small organic store down the street.",
+        "<a href='http://localhost:3000/scene/organicStore'>You decide to go to the small organic store down the street.</a>",
       scene: "organicStore",
     },
     {
       description:
-        ""<a href='http://localhost:3000/scene/orderPizza'>You decide to order pizza.</a>"You decide to go to the huge grocery store that has everything (including cheap prices).",
-      scene: "giantStore",
+        "<a href='http://localhost:3000/scene/superstore'>You decide to go to the huge grocery store that has everything (including cheap prices).</a>",
+      scene: "superstore",
     },
   ]
 );
@@ -104,7 +120,7 @@ scenes.createScene(
   ]
 );
 scenes.createScene(
-  "giantStore",
+  "superstore",
   `You head out to the giant store that has everything.  Unfortunately, it also has miles of aisles, and you spend what feels like hours searching for the ingredients you want.  When you finally find out where things are, what do you decide to buy?`,
   [
     { description: "Flour", scene: "*****SCENENAME*****" },

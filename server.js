@@ -29,16 +29,28 @@ function close() {
   });
 }
 
-app.use("/scene", sceneRoutes);
+// app.use(express.json()) replaces app.use(bodyparser.json())
 app.use(express.json());
+// urlencoded grabs data from a form
 app.use(express.urlencoded({ extended: true }));
-// // For CSS
-// app.use(express.static(__dirname + "/public"));
-// var link = document.createElement("link");
-// link.setAttribute("rel", "stylesheet");
-// link.setAttribute("href", "/public/css/style.css");
-// var head = document.getElementsByTagName("head")[0];
-// head.appendChild(link);
+app.use(express.static("public")); // Put css/images in this folder
+app.use("/scene", sceneRoutes); // Put this behind the other app.use's
+
+// app.get("/", (req, res) => {
+//   res.redirect("/scene/intro");
+// });
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/login.html");
+});
+
+// app.get("/scene", (req, res) => {
+//   res.redirect("/orderPizza");
+// });
+
+// app.get("/test", (req, res) => {
+//   console.log("player name in test: ", playerName);
+//   res.send(playerName);
+// });
 
 // // ***Add something to the database (MongoDB) - works but not sure how to use this in my game
 // db.getCollection("scenes")
@@ -57,33 +69,8 @@ app.use(express.urlencoded({ extended: true }));
 //   });
 // ***End of Add something to the database (MongoDB)
 
-app.get("/", (req, res) => {
-  res.redirect("/scene/intro");
-});
-
-// // ***Experimenting with PUT
-// app.put("/:scenes", (req, res) => {
-//   console.log("TEST??");
-//   scenes.description = "Bob?";
-//   res.send(scenes);
-// });
-
-// app.put("/scene/:id", function (req, res, next) {
-//   scenes
-//     .findByIdAndUpdate({ _id: req.params.id }, req.body)
-//     .then(function (scene) {
-//       res.send({ scene });
-//     });
-// });
-// // ***End of Experimenting with PUT
-
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}...`);
 });
 
-module.exports = {
-  getDb,
-  getCollection,
-  close,
-  // wallet,
-};
+// module.exports.playerName = playerName;

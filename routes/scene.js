@@ -4,8 +4,19 @@ const formatSceneAsText = require("../views/formatSceneAsText");
 
 let wallet = 10;
 let shoppingCart = [];
+let playerName = "";
 
 let router = express.Router();
+
+router.post("/", (req, res) => {
+  console.log("req.body", req.body);
+  // console.log("req.body.playerName", req.body.playerName);
+  playerName = req.body.playerName;
+  console.log("@@@@@@@@@ Newest: ", playerName);
+  console.log("type = ", typeof playerName);
+  // res.send(playerName);
+  res.redirect("/scene/orderPizza");
+});
 
 router.get("/:sceneName", async (req, res) => {
   let wrapWidth = req.query.wrapWidth || 60;
@@ -26,7 +37,8 @@ router.get("/:sceneName", async (req, res) => {
         shoppingCart,
         scene,
         wrapWidth,
-        "http://localhost:3000"
+        "http://localhost:3000",
+        playerName
       )
     );
   } catch (error) {
