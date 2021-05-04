@@ -1,11 +1,6 @@
-# Game API
+# Project 1
 
-This is a basic API built for Node using Express.
-
-## Requirements
-
-- Node
-- cURL
+The goal was to make a text-based interactive game using NodeJS, ExpressJS, and API endpoints.
 
 ## Running Locally
 
@@ -17,3 +12,5 @@ npm install
 node model/loadInitialStory.js
 npm start
 ```
+
+Go to: http://localhost:3000

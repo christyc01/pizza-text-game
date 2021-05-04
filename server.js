@@ -29,28 +29,14 @@ function close() {
   });
 }
 
-// app.use(express.json()) replaces app.use(bodyparser.json())
-app.use(express.json());
-// urlencoded grabs data from a form
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // app.use(express.json()) replaces app.use(bodyparser.json())
+app.use(express.urlencoded({ extended: true })); // urlencoded grabs data from a form
 app.use(express.static("public")); // Put css/images in this folder
 app.use("/scene", sceneRoutes); // Put this behind the other app.use's
 
-// app.get("/", (req, res) => {
-//   res.redirect("/scene/intro");
-// });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/login.html");
 });
-
-// app.get("/scene", (req, res) => {
-//   res.redirect("/orderPizza");
-// });
-
-// app.get("/test", (req, res) => {
-//   console.log("player name in test: ", playerName);
-//   res.send(playerName);
-// });
 
 // // ***Add something to the database (MongoDB) - works but not sure how to use this in my game
 // db.getCollection("scenes")
@@ -72,5 +58,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}...`);
 });
-
-// module.exports.playerName = playerName;
